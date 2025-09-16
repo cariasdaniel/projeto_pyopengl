@@ -24,29 +24,29 @@ class MyCanvas (QtOpenGLWidgets.QOpenGLWidget):
         glLoadIdentity()
         glOrtho(0.0, self.m_w, 0.0, self.m_h, -1.0, 1.0)
         glMatrixMode(GL_MODELVIEW)
-        glLoadIdentity
+        glLoadIdentity()
     
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT)
         glShadeModel(GL_SMOOTH)
-        xA = self.m_w / 1.0
-        yA = self.m_h / 2.0
+        xA = self.m_w / 2.0
+        yA = self.m_h * (3/4)
         xB = self.m_w * (2.0/3.0)
         yB = self.m_h / 3.0
-        xC = self.m_w / 2.0
-        yC = self.m_h * (2.0/3.0)
+        xC = self.m_w * (1.0/3.0)
+        yC = self.m_h / 3.0
         glBegin(GL_TRIANGLES)
         glColor3f(1.0, 0.0, 0.0)
         glVertex2f(xA,yA)
-        glColor3f(0.0, 2.0, 0.0)
+        glColor3f(0.0, 1.0, 0.0)
         glVertex2f(xB,yB)
-        glColor3f(0.0, 0.0, 3.0)
+        glColor3f(0.0, 0.0, 1.0)
         glVertex2f(xC,yC)
         glEnd()
 
     
-if __name__ == 'main':
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = MyCanvas()
-    widget.show
+    widget.show()
     sys.exit(app.exec())
